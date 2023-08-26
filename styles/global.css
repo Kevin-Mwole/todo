@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 18px;
+}
+
+:root {
+  --measure: 60ch;
+  --scale-ratio: 1.33;
+  --s-2: calc(var(--s-1) / var(--scale-ratio));
+  --s-1: calc(var(--s0) / var(--scale-ratio));
+  --s0: 1rem;
+  --s1: calc(var(--s0) * var(--scale-ratio));
+  --s2: calc(var(--s1) * var(--scale-ratio));
+  --s3: calc(var(--s2) * var(--scale-ratio));
+  --border-radius: 4px;
+  --muted-color-hsl: 236, 9%, 61%;
+  /* Key theme colors */
+  --primary-blue: hsl(220, 98%, 61%);
+  --color-gradiant: linear-gradient(
+    to bottom right,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+  --background-gradiant: linear-gradient(
+    to right,
+    hsl(280, 87%, 65%),
+    hsl(192, 100%, 67%)
+  );
+
+  /* Light theme */
+  --very-light-gray: hsl(0, 0%, 98%);
+  --very-light-grayish-blue: hsl(233, 33%, 92%);
+  --light-grayish-blue: hsl(233, 11%, 84%);
+  --dark-grayish-blue: hsl(236, 9%, 61%);
+  --very-dark-grayish-blue: hsl(235, 19%, 35%);
+
+  /* dark theme */
+  --dt-very-dark-blue: hsl(235, 21%, 11%);
+  --dt-very-dark-desaturated-blue: hsl(235, 24%, 19%);
+  --dt-light-grayish-blue: hsl(234, 39%, 85%);
+  --dt-light-grayish-blue-hover: hsl(236, 33%, 92%);
+  --dt-dark-grayish-blue: hsl(234, 11%, 52%);
+  --dt-very-dark-grayish-blue: hsl(233, 14%, 35%);
+  --dt-very-dark-grayish-blue-: hsl(237, 14%, 26%);
+
+  --white: hsl(0, 0%, 100%);
+  --heading-color: var(--white);
+  --body-color: var(--very-light-gray);
+  --main-background-color: var(--white);
+  --very-muted-text-color: var(--light-grayish-blue);
+  --muted-text-color: var(--dark-grayish-blue);
+  --strong-text-color: var(--very-dark-grayish-blue);
+  --button-color: var(--dark-grayish-blue);
+  --button-hover-color: var(--strong-text-color);
+  --shadow-color: hsla(var(--muted-color-hsl), 30%);
+  --divider-color: var(--light-grayish-blue);
+
+  --color-mode: 'light';
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-mode: 'dark';
+  }
+
+  :root:not([data-user-theme='light']) {
+    --heading-color: var(--white);
+    --body-color: var(--dt-very-dark-blue);
+    --main-background-color: var(--dt-very-dark-desaturated-blue);
+    --very-muted-text-color: var(--dt-dark-grayish-blue);
+    --muted-text-color: var(--dt-dark-grayish-blue);
+    --strong-text-color: var(--dt-light-grayish-blue);
+    --button-color: var(--dt-dark-grayish-blue);
+    --button-hover-color: var(--strong-text-color);
+    --shadow-color: hsla(0, 0%, 0%, 40%);
+    --divider-color: var(--dt-dark-grayish-blue);
+  }
+}
+
+[data-user-theme='dark'] {
+  --heading-color: var(--white);
+  --body-color: var(--dt-very-dark-blue);
+  --main-background-color: var(--dt-very-dark-desaturated-blue);
+  --very-muted-text-color: var(--dt-dark-grayish-blue);
+  --muted-text-color: var(--dt-dark-grayish-blue);
+  --strong-text-color: var(--dt-light-grayish-blue);
+  --button-color: var(--dt-dark-grayish-blue);
+  --button-hover-color: var(--button-hover-color);
+  --shadow-color: hsla(0, 0%, 0%, 40%);
+  --divider-color: var(--dt-dark-grayish-blue);
+}
+
+* {
+  max-width: var(--measure);
+}
+
+html,
+body,
+div,
+header,
+nav,
+main,
+footer {
+  max-width: none;
+}
+
+body {
+  background-color: var(--body-color);
+  color: var(--strong-text-color);
+}
+
+* {
+  transition: color, background-color 0.2s ease-in-out;
+}
+
+::placeholder {
+  color: var(--muted-text-color);
+}
